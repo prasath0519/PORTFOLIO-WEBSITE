@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devaprasath R - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for Monochromatic Purple Dark Mode with Pink Accent */
+        :root {
+            scroll-behavior: smooth;
+        }
+        body {
+            /* MONOCHROMATIC PURPLE THEME BASE COLORS */
+            --color-bg-primary: #241440; /* Deep Muted Indigo/Purple */
+            --color-bg-secondary: #301B56; /* Slightly lighter purple for cards/sections */
+            --color-text-light: #f1e4ff; /* Soft off-white for high contrast */
+            --color-text-muted: #c9b8e6; /* Muted contrast text */
+            --color-accent: #D81B60; /* VIBRANT PINK/MAGENTA ACCENT */
+            --color-accent-hover: #B81550; /* Darker accent for hover */
+
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-light);
+        }
+
+        /* PRIMARY VIBRANT ACCENT COLOR: #D81B60 (Pinkish Magenta) */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text-light);
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 70%;
+            height: 4px;
+            background-color: var(--color-accent);
+            border-radius: 9999px;
+        }
+        .card-shadow {
+            /* Subtle shadow adjustment for dark mode */
+            box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.5), 0 2px 5px -2px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .card-shadow:hover {
+            transform: translateY(-5px);
+        }
+        .nav-link.active {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        /* Mobile menu specific styles */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform: translateX(-100%);
+            background-color: var(--color-bg-primary); 
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="sticky top-0 z-50 bg-[#241440] shadow-lg border-b border-[#301B56]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="text-xl font-bold text-white tracking-wider">
+                    Devaprasath R
+                </a>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-400 hover:text-[#D81B60] transition duration-150 ease-in-out">Home</a>
+                    <a href="#about" class="nav-link text-gray-400 hover:text-[#D81B60] transition duration-150 ease-in-out">About</a>
+                    <a href="#skills" class="nav-link text-gray-400 hover:text-[#D81B60] transition duration-150 ease-in-out">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-400 hover:text-[#D81B60] transition duration-150 ease-in-out">Projects</a>
+                    <a href="#experience" class="nav-link text-gray-400 hover:text-[#D81B60] transition duration-150 ease-in-out">Experience</a>
+                    <a href="#certifications" class="nav-link text-gray-400 hover:text-[#D81B60] transition duration-150 ease-in-out">Certifications</a>
+                    <a href="#recognition" class="nav-link text-gray-400 hover:text-[#D81B60] transition duration-150 ease-in-out">Recognition</a>
+                    <a href="#contact" class="nav-link text-gray-400 hover:text-[#D81B60] transition duration-150 ease-in-out">Contact</a>
+                </nav>
+
+                <button id="menu-button" class="md:hidden text-gray-400 hover:text-[#D81B60] focus:outline-none">
+                    <span id="menu-icon" data-lucide="menu"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-[#241440] z-50 p-6 shadow-2xl md:hidden">
+            <div class="flex justify-end mb-8">
+                <button id="close-menu-button" class="text-gray-400 hover:text-[#D81B60] focus:outline-none">
+                    <span data-lucide="x"></span>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4">
+                <a href="#home" class="nav-link-mobile text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">Home</a>
+                <a href="#about" class="nav-link-mobile text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">About</a>
+                <a href="#skills" class="nav-link-mobile text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">Skills</a>
+                <a href="#projects" class="nav-link-mobile text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">Projects</a>
+                <a href="#experience" class="nav-link-mobile text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">Experience</a>
+                <a href="#certifications" class="nav-link-mobile text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">Certifications</a>
+                <a href="#recognition" class="nav-link-mobile text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">Recognition</a>
+                <a href="#contact" class="nav-link-mobile text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="min-h-[calc(100vh-64px)] flex items-center bg-[#241440] border-b border-[#301B56]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
+                <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+                    <div class="md:w-1/2">
+                        <p class="text-lg text-[#D81B60] font-semibold mb-2">Hello, I'm</p>
+                        <h1 class="text-5xl lg:text-7xl font-extrabold text-[#f1e4ff] leading-tight mb-4">
+                            Devaprasath <span class="text-[#D81B60]">R</span>
+                        </h1>
+                        <h2 class="text-2xl lg:text-3xl font-medium text-[#c9b8e6] mb-4">
+                            BCA Student specializing in AI & DS | Digital Marketing Enthusiast
+                        </h2>
+                        
+                        <div class="flex space-x-5 mb-8">
+                            <a href="https://www.linkedin.com/in/deva-prasath-r" target="_blank" class="text-[#c9b8e6] hover:text-[#D81B60] transition duration-200 transform hover:scale-110" title="LinkedIn Profile">
+                                <span data-lucide="linkedin" class="w-7 h-7"></span>
+                            </a>
+                            <a href="https://github.com/Dev192005/ai-devsecops-cloud-native.git" target="_blank" class="text-[#c9b8e6] hover:text-[#D81B60] transition duration-200 transform hover:scale-110" title="GitHub Profile">
+                                <span data-lucide="github" class="w-7 h-7"></span>
+                            </a>
+                        </div>
+                        
+                        <p class="text-[#c9b8e6] mb-8 max-w-lg">
+                            An ambitious computer applications student with a strong foundation in data science, web development, and a passion for creating impactful solutions. Dedicated to continuous learning and innovation.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a id="download-resume-btn" 
+                                href="C:\Users\prasath\Downloads\DEVAPRASATHRESUME (2).pdf" 
+                                download="C:\Users\prasath\Downloads\DEVAPRASATHRESUME (2).pdf" 
+                                class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-[#D81B60] hover:bg-[#B81550] transition duration-150 ease-in-out transform hover:scale-105">
+                                Download Resume
+                            </a>
+                            <a href="#projects" class="inline-flex items-center justify-center px-6 py-3 border border-[#301B56] text-base font-medium rounded-full shadow-md text-[#f1e4ff] bg-[#301B56] hover:bg-[#432A75] transition duration-150 ease-in-out transform hover:scale-105">
+                                View Projects
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-[#301B56] rounded-full flex items-center justify-center overflow-hidden border-8 border-[#241440] shadow-2xl">
+                            <img src="C:\Users\prasath\Downloads\Devaprasathpic.jpg"
+                                alt="Devaprasath R Profile Picture" 
+                                class="w-full h-full object-cover" 
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x400/301B56/c9b8e6?text=Profile+Image';">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-[#301B56]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-title text-3xl font-bold">About Me</h3>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <p class="text-[#c9b8e6] leading-relaxed mb-6">
+                            I am currently pursuing a <span class="font-bold text-[#f1e4ff]">Bachelor of Computer Applications (AI & DS)</span> at Dr.M.G.R Educational and Research Institute (Batch 2023 - 2026) with an outstanding GPA of <span class="font-bold text-[#f1e4ff]">9.38</span>. My academic journey is complemented by practical skills in data science, including Python, R, and a strong understanding of web technologies.
+                        </p>
+                        <p class="text-[#c9b8e6] leading-relaxed mb-6">
+                            Beyond my technical expertise, I have a strong interest in <span class="font-bold text-[#f1e4ff]">Digital Marketing</span> and its application in modern business. My goal is to leverage data-driven insights and AI/Cloud technologies to develop effective, scalable, and secure digital solutions.
+                        </p>
+                        <a href="https://www.linkedin.com/in/deva-prasath-r" target="_blank" class="inline-flex items-center text-[#D81B60] font-medium hover:text-[#B81550] transition duration-150 ease-in-out">
+                            Connect on LinkedIn
+                            <span data-lucide="arrow-right" class="w-4 h-4 ml-2"></span>
+                        </a>
+                    </div>
+                    <div class="bg-[#241440] p-6 rounded-xl card-shadow border border-[#301B56]">
+                        <h4 class="text-xl font-semibold text-[#f1e4ff] mb-3 flex items-center">
+                            <span data-lucide="graduation-cap" class="w-5 h-5 mr-2 text-[#D81B60]"></span>
+                            Education
+                        </h4>
+                        <p class="text-lg font-medium text-[#f1e4ff]">BCA (AI & DS)</p>
+                        <p class="text-[#c9b8e6]">Dr.M.G.R Educational and Research Institute</p>
+                        <p class="text-sm text-gray-400 mb-2">Aug 2023 - May 2026 | Maduravoyal, Tamil Nadu</p>
+                        <p class="text-md font-bold text-[#D81B60]">GPA: 9.38</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 bg-[#241440]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-title text-3xl font-bold">Skills Summary</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <div class="bg-[#301B56] p-6 rounded-xl card-shadow border border-[#432A75]">
+                        <h4 class="text-lg font-semibold text-[#f1e4ff] mb-3 flex items-center">
+                            <span data-lucide="code" class="w-5 h-5 mr-2 text-[#D81B60]"></span>
+                            Languages
+                        </h4>
+                        <ul class="space-y-2 text-[#c9b8e6]">
+                            <li>SQL</li>
+                            <li>Java</li>
+                            <li class="font-bold text-[#f1e4ff]">Python</li>
+                            <li>R</li>
+                            <li>HTML / CSS / JavaScript</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-[#301B56] p-6 rounded-xl card-shadow border border-[#432A75]">
+                        <h4 class="text-lg font-semibold text-[#f1e4ff] mb-3 flex items-center">
+                            <span data-lucide="box" class="w-5 h-5 mr-2 text-[#D81B60]"></span>
+                            Frameworks / Libraries
+                        </h4>
+                        <ul class="space-y-2 text-[#c9b8e6]">
+                            <li>Pandas</li>
+                            <li>Numpy</li>
+                            <li>Matplotlib</li>
+                            <li>Tailwind CSS</li>
+                            <li>Scikit-learn (implied by AI/DS)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-[#301B56] p-6 rounded-xl card-shadow border border-[#432A75]">
+                        <h4 class="text-lg font-semibold text-[#f1e4ff] mb-3 flex items-center">
+                            <span data-lucide="tool" class="w-5 h-5 mr-2 text-[#D81B60]"></span>
+                            Tools / Platforms
+                        </h4>
+                        <ul class="space-y-2 text-[#c9b8e6]">
+                            <li>MySQL</li>
+                            <li>Github</li>
+                            <li>VS Code</li>
+                            <li>Google Colab</li>
+                            <li>Jupyter Notebook</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-[#301B56] p-6 rounded-xl card-shadow border border-[#432A75]">
+                        <h4 class="text-lg font-semibold text-[#f1e4ff] mb-3 flex items-center">
+                            <span data-lucide="lightbulb" class="w-5 h-5 mr-2 text-[#D81B60]"></span>
+                            Soft Skills / Marketing
+                        </h4>
+                        <ul class="space-y-2 text-[#c9b8e6]">
+                            <li>Digital Marketing (SEO)</li>
+                            <li>Good Communication</li>
+                            <li>Leadership</li>
+                            <li>Content Creation</li>
+                            <li>Problem Solving</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 bg-[#301B56]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-title text-3xl font-bold">Projects</h3>
+                <div class="space-y-8">
+                    
+                    <div class="bg-[#241440] p-6 rounded-xl card-shadow border border-[#432A75] flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/4 flex items-center justify-center">
+                            <span data-lucide="shield-check" class="w-12 h-12 text-[#D81B60]"></span>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h4 class="text-xl font-semibold text-[#f1e4ff] mb-2">AI-Augmented DevSecOps Pipelines for Cloud-Native Architectures</h4>
+                            <p class="text-sm font-medium text-[#c9b8e6] mb-3">Technology: AI-Driven Anomaly Detection, Jenkins, Kubernetes, Cloud-Native</p>
+                            <p class="text-[#c9b8e6] leading-relaxed">Ideated a solution for building <span class="font-bold text-[#f1e4ff]">secure, scalable, and self-healing DevSecOps pipelines</span> in cloud-native service-oriented architectures using AI-driven anomaly detection. This innovation supports a zero-trust architecture with a throughput of **10,000 events/sec**.</p>
+                            <div class="flex space-x-4 mt-3">
+                                <a href="v0-ai-dev-sec-ops-pipelines.vercel.app" target="_blank" class="text-sm text-[#D81B60] hover:text-[#B81550] transition duration-150 ease-in-out inline-flex items-center">
+                                    View Live Project
+                                    <span data-lucide="monitor" class="w-4 h-4 ml-2"></span>
+                                </a>
+                                <a href="https://github.com/Dev192005/ai-devsecops-cloud-native.git" target="_blank" class="text-sm text-[#D81B60] hover:text-[#B81550] transition duration-150 ease-in-out inline-flex items-center">
+                                    GitHub Code
+                                    <span data-lucide="github" class="w-4 h-4 ml-2"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-[#241440] p-6 rounded-xl card-shadow border border-[#432A75] flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/4 flex items-center justify-center">
+                            <span data-lucide="line-chart" class="w-12 h-12 text-[#D81B60]"></span>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h4 class="text-xl font-semibold text-[#f1e4ff] mb-2">Predictive Analytics for Academic Performance</h4>
+                            <p class="text-sm font-medium text-[#c9b8e6] mb-3">Technology: R, Statistical Analysis, Machine Learning</p>
+                            <p class="text-[#c9b8e6] leading-relaxed">Developed a data-driven model using R to accurately forecast student marks based on statistical analysis, robust data visualization techniques, and predictive machine learning algorithms.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#241440] p-6 rounded-xl card-shadow border border-[#432A75] flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/4 flex items-center justify-center">
+                            <span data-lucide="monitor" class="w-12 h-12 text-[#D81B60]"></span>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h4 class="text-xl font-semibold text-[#f1e4ff] mb-2">E-Learning Platform Development</h4>
+                            <p class="text-sm font-medium text-[#c9b8e6] mb-3">Technology: HTML, CSS, JavaScript</p>
+                            <p class="text-[#c9b8e6] leading-relaxed">Designed and implemented a responsive, user-friendly educational website, focusing on modern web design principles and interactive features to enhance the learning experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#241440] p-6 rounded-xl card-shadow border border-[#432A75] flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/4 flex items-center justify-center">
+                            <span data-lucide="list-checks" class="w-12 h-12 text-[#D81B60]"></span>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h4 class="text-xl font-semibold text-[#f1e4ff] mb-2">Task Management System (To-Do List)</h4>
+                            <p class="text-sm font-medium text-[#c9b8e6] mb-3">Technology: Python</p>
+                            <p class="text-[#c9b8e6] leading-relaxed">Built an interactive To-Do List application using modular programming principles to facilitate efficient task prioritization and organization.</p>
+                            <a href="https://github.com/Devaprasath19/Devaprasath-.git" target="_blank" class="text-sm text-[#D81B60] hover:text-[#B81550] transition duration-150 ease-in-out mt-3 inline-flex items-center">
+                                View Code
+                                <span data-lucide="github" class="w-4 h-4 ml-2"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20 bg-[#241440]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-title text-3xl font-bold mb-10">Experience</h3>
+
+                <div class="grid lg:grid-cols-1 gap-10">
+                    <div>
+                        <h4 class="text-2xl font-semibold text-[#f1e4ff] mb-5 flex items-center">
+                            <span data-lucide="briefcase" class="w-6 h-6 mr-2 text-[#D81B60]"></span>
+                            Professional Experience
+                        </h4>
+                        <div class="bg-[#301B56] p-6 rounded-xl card-shadow border border-[#432A75]">
+                            <p class="text-lg font-bold text-[#f1e4ff]">Digital Marketing Intern</p>
+                            <p class="text-md font-medium text-[#D81B60]">London School of Digital Business - London</p>
+                            <p class="text-sm text-gray-400 mb-3">Duration: 2 months</p>
+                            <ul class="list-disc list-inside space-y-2 text-[#c9b8e6]">
+                                <li>Acquired foundational knowledge in Digital Marketing, including core principles and strategic applications.</li>
+                                <li>Gained expertise in both off-page and on-page SEO techniques to improve search visibility.</li>
+                                <li>Successfully completed directory submissions to enhance website visibility and improve search rankings.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h4 class="text-2xl font-semibold text-[#f1e4ff] mb-5 flex items-center">
+                            <span data-lucide="heart" class="w-6 h-6 mr-2 text-[#D81B60]"></span>
+                            Volunteering Experience
+                        </h4>
+                        <div class="bg-[#301B56] p-6 rounded-xl card-shadow border border-[#432A75]">
+                            <p class="text-lg font-bold text-[#f1e4ff]">Volunteer</p>
+                            <p class="text-md font-medium text-[#D81B60]">Dr. M.G.R Educational and Research Institute (FOCA)</p>
+                            <p class="text-sm text-gray-400 mb-3">April 2024</p>
+                            <p class="text-[#c9b8e6]">Volunteered for the 7th National Conference on <span class="font-bold text-[#f1e4ff]">“E-Governance and Cloud Computing Services,”</span> organized by the Faculty of Computer Applications (FOCA).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="py-20 bg-[#301B56]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-title text-3xl font-bold mb-10">Certifications</h3>
+                
+                <h4 class="text-2xl font-semibold text-[#f1e4ff] mb-5 flex items-center">
+                    <span data-lucide="award" class="w-6 h-6 mr-2 text-[#D81B60]"></span>
+                    Completed Courses & Exams
+                </h4>
+                <div class="bg-[#241440] p-6 rounded-xl card-shadow border border-[#432A75]">
+                    <ul class="list-disc list-inside space-y-3 text-[#c9b8e6]">
+                        <li>
+                            <a href="/download?file=eCertificate_ Oracle Data science Professional.pdf" download="Oracle_Data_Science_Professional_Certificate.pdf" class="text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">
+                                Oracle Cloud Infrastructure 2025 Certified Data Science Professional
+                            </a>
+                        </li>
+                        <li>
+                            <span class="text-[#f1e4ff]">Cloud Computing using AWS</span>
+                            <span class="text-[#D81B60] text-sm">(Offline Course)</span>
+                        </li>
+                        <li>
+                            <span class="text-[#f1e4ff]">RAG in Action: Revolutionizing AI with Text, Vector & Web Data</span>
+                            <span class="text-[#D81B60] text-sm">(Offline Course 2025)</span>
+                        </li>
+                        <li>
+                            <a href="/download?file=IBMDesign20250908-31-6jv70w.pdf" download="Customer_Engagement_Problem_Solving_IBM.pdf" class="text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">
+                                Customer Engagement: Problem Solving and Process Controls
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/download?file=IBMDesign20250908-31-kgs3ha.pdf" download="Customer_Engagement_Communication_IBM.pdf" class="text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">
+                                Customer Engagement: Communication and Personality Dynamics
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/download?file=1026Devaprasath python.pdf" download="Introduction_to_Python_Certificate.pdf" class="text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">
+                                Introduction to Python
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/download?file=IBMDesign20250908-31-jpqy6x.pdf" download="Artificial_Intelligence_Fundamentals_Certificate.pdf" class="text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">
+                                Artificial Intelligence Fundamentals
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/download?file=Data visualization certificate " download="Data_Visualization_Certificate.pdf" class="text-[#f1e4ff] hover:text-[#D81B60] transition duration-150 ease-in-out">
+                                Data Visualization using R and Python
+                            </a>
+                        </li>
+                        <li>
+                            <span class="text-[#f1e4ff]">SQL and Relational Databases 101</span>
+                            <span class="text-[#D81B60] text-sm">(Offline Course)</span>
+                        </li>
+                        <li>
+                            <span class="text-[#f1e4ff]">IBM Watson Studio</span>
+                            <span class="text-[#D81B60] text-sm">(Offline Course)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="recognition" class="py-20 bg-[#241440]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-title text-3xl font-bold">Recognition</h3>
+
+                <h4 class="text-2xl font-semibold text-[#f1e4ff] mb-5 flex items-center">
+                    <span data-lucide="star" class="w-6 h-6 mr-2 text-[#D81B60]"></span>
+                    Awards & Leadership
+                </h4>
+                <div class="bg-[#301B56] p-6 rounded-xl card-shadow border border-[#432A75]">
+                    <ul class="list-disc list-inside space-y-3 text-[#c9b8e6]">
+                        <li><span class="font-bold text-[#f1e4ff]">Best Student</span> from the pre-placement of the AI Training Program, conducted by Magic Bus India Foundation and funded by Cisco at Dr. M.G.R Educational and Research Institute. (2025)</li>
+                        <li>Awarded <span class="font-bold text-[#f1e4ff]">Best Performer</span> at the RAG AI Model Workshop.</li>
+                        <li>Served as a Judge for the Computer Science and Deep Learning departments at Saveetha School of Engineering.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-[#301B56]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-title text-3xl font-bold">Get In Touch</h3>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <span data-lucide="mail" class="w-6 h-6 mr-4 text-[#D81B60] mt-1"></span>
+                            <div>
+                                <h5 class="text-lg font-semibold text-[#f1e4ff]">Email</h5>
+                                <a href="mailto:devaprasath721@gmail.com" class="text-[#c9b8e6] hover:text-[#D81B60]">devaprasath721@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span data-lucide="phone" class="w-6 h-6 mr-4 text-[#D81B60] mt-1"></span>
+                            <div>
+                                <h5 class="text-lg font-semibold text-[#f1e4ff]">Phone</h5>
+                                <a href="tel:+916374780968" class="text-[#c9b8e6] hover:text-[#D81B60]">+91 6374780968</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span data-lucide="map-pin" class="w-6 h-6 mr-4 text-[#D81B60] mt-1"></span>
+                            <div>
+                                <h5 class="text-lg font-semibold text-[#f1e4ff]">Location</h5>
+                                <p class="text-[#c9b8e6]">Maduravoyal, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-semibold text-[#f1e4ff]">Find Me Online</h4>
+                        <div class="flex space-x-6">
+                            <a href="https://www.linkedin.com/in/deva-prasath-r" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-[#241440] text-[#D81B60] shadow-md hover:bg-[#D81B60] hover:text-white transition duration-200">
+                                <span data-lucide="linkedin" class="w-6 h-6"></span>
+                            </a>
+                            <a href="https://github.com/Dev192005/ai-devsecops-cloud-native.git" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-[#241440] text-[#c9b8e6] shadow-md hover:bg-[#432A75] hover:text-white transition duration-200">
+                                <span data-lucide="github" class="w-6 h-6"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#241440] py-6 border-t border-[#301B56]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            &copy; <span id="current-year"></span> Devaprasath R. All rights reserved. | Developed with HTML & Tailwind CSS.
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // --- Navigation Logic and Active State ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
+        const sections = document.querySelectorAll('section');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuButton = document.getElementById('menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+
+        // Function to handle active state in desktop navigation
+        function updateActiveLink() {
+            let current = 'home';
+            sections.forEach(section => {
+                // Adjust sectionTop for sticky header and padding
+                const sectionTop = section.offsetTop - 70; 
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.href.includes(`#${current}`)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Event listeners for mobile menu
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Initial call and attach to scroll event
+        window.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('load', updateActiveLink); // Check active on load
+
+        // --- Footer Year ---
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    </script>
+</body>
+</html>
